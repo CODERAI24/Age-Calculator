@@ -2,11 +2,9 @@ console.log("script.js loaded");
 
 let timerId = null;
 
-// state flags
 let birthdayUIInitialized = false;
 let secretUnlocked = false;
 
-// countdown element references
 let countdownEls = {};
 
 function calculateAge() {
@@ -15,10 +13,14 @@ function calculateAge() {
     const input = birthdateInput.value;
 
     const error = document.getElementById("error");
+    
     const resultContainer = document.getElementById("resultcontainer");
+    
     const result = document.getElementById("result");
+    
 
     const birthdayContainer = document.getElementById("birthdayContainer");
+    
     const birthdayResult = document.getElementById("birthdayResult");
 
     const today = new Date();
@@ -41,28 +43,27 @@ function calculateAge() {
 
     error.innerText = "";
 
-    // reset state
     birthdayUIInitialized = false;
     secretUnlocked = false;
     countdownEls = {};
 
     if (timerId) clearInterval(timerId);
 
-    /* 🌟 SPECIAL / SECRET DATES */
+   
     const specialDates = {
-        "2004-04-24": {
+        "2004-03-24": {
             message: "💖 This date is very special 💖",
             secret: false
         },
         "2005-02-15": {
-            message: "✨ MY BABY WAS BORN ✨",
+            message: " My MINI PENGU was born 🎉💖 ",
             secret: true,
-            password: "baby"
+            password: "mini"
         },
         "2019-11-10": {
             message: "🎉 First Day with my baby 🎉",
             secret: true,
-            password: "love"
+            password: "mini"
         },
         "2011-12-17": {
             message: "🌸 A beautiful soul was born 🌸",
@@ -81,7 +82,7 @@ function calculateAge() {
     function updateAge() {
         const now = new Date();
 
-        /* ---------- AGE (calendar based) ---------- */
+        
         let years = now.getFullYear() - birthdate.getFullYear();
         let months = now.getMonth() - birthdate.getMonth();
         let days = now.getDate() - birthdate.getDate();
@@ -96,7 +97,7 @@ function calculateAge() {
             months += 12;
         }
 
-        /* ---------- LIVE STATS ---------- */
+        
         const ageMs = now - birthdate;
         const ageSeconds = Math.floor(ageMs / 1000);
         const ageMinutes = Math.floor(ageSeconds / 60);
@@ -104,7 +105,7 @@ function calculateAge() {
         const ageDays = Math.floor(ageHours / 24);
         const ageWeeks = Math.floor(ageDays / 7);
 
-        /* ---------- NEXT BIRTHDAY ---------- */
+        
         let nextBirthday = new Date(
             now.getFullYear(),
             birthdate.getMonth(),
@@ -122,7 +123,7 @@ function calculateAge() {
         const minutesLeft = Math.floor((diff / (1000 * 60)) % 60);
         const secondsLeft = Math.floor((diff / 1000) % 60);
 
-        /* ---------- INITIALIZE BIRTHDAY UI ONCE ---------- */
+       
         if (!birthdayUIInitialized) {
             birthdayUIInitialized = true;
 
@@ -170,7 +171,6 @@ function calculateAge() {
                 seconds: document.getElementById("bdSeconds")
             };
 
-            /* ---------- PASSWORD UNLOCK ---------- */
             if (specialDates[input] && specialDates[input].secret) {
                 const btn = document.getElementById("unlockBtn");
                 if (btn) {
@@ -181,7 +181,7 @@ function calculateAge() {
                         if (entered === specialDates[input].password) {
                             secretUnlocked = true;
 
-                            // Replace secret box with message IMMEDIATELY
+                           
                             const secretBox = document.getElementById("secretBox");
                             if (secretBox) {
                                 secretBox.innerHTML = `
@@ -198,13 +198,13 @@ function calculateAge() {
             }
         }
 
-        /* ---------- UPDATE ONLY COUNTDOWN NUMBERS ---------- */
+       
         countdownEls.days.textContent = daysLeft;
         countdownEls.hours.textContent = hoursLeft;
         countdownEls.minutes.textContent = minutesLeft;
         countdownEls.seconds.textContent = secondsLeft;
 
-        /* ---------- AGE OUTPUT ---------- */
+      
         result.innerHTML = `
             <div class="result-item"><h3>Age</h3><p>${years} Years ${months} Months ${days} Days</p></div>
             <div class="result-item"><h3>Weeks Passed</h3><p>${ageWeeks}</p></div>
@@ -222,8 +222,9 @@ function calculateAge() {
     timerId = setInterval(updateAge, 1000);
 }
 
-/* ---------- FORM SUBMIT ---------- */
+
 document.getElementById("agecalculator").addEventListener("submit", (e) => {
     e.preventDefault();
     calculateAge();
 });
+
