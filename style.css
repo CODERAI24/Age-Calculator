@@ -1,0 +1,272 @@
+/* ---------- Global Reset & Font ---------- */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ---------- Page Background ---------- */
+body {
+    min-height: 100vh;
+    background: linear-gradient(
+        135deg,
+        #dbeafe,   /* light blue */
+        #bfdbfe,   /* soft blue */
+        #e0e7ff,   /* lavender blue */
+        #fbcfe8    /* soft pink */
+    );
+    background-attachment: fixed;
+}
+
+/* ---------- Main Container ---------- */
+.container {
+    width: 600px;
+    margin: 90px auto;
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 14px;
+    box-shadow: 0 15px 35px rgba(59, 130, 246, 0.25);
+}
+
+/* ---------- Headings ---------- */
+h1 {
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+/* ---------- Form ---------- */
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 500;
+    color: #1e293b;
+}
+
+/* ---------- Inputs ---------- */
+input[type="text"],
+input[type="date"] {
+    width: 95%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #c7d2fe;
+    color: #1e293b;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.45);
+}
+
+/* ---------- Button ---------- */
+button {
+    padding: 10px 22px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #3b82f6, #60a5fa);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.35);
+}
+
+/* ---------- Result Container ---------- */
+.result-container {
+    display: none;
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(59, 130, 246, 0.2);
+}
+
+.result {
+    margin-top: 10px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e0e7ff;
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result h3 {
+    font-size: 15px;
+    font-weight: 500;
+    color: #475569;
+}
+
+.result p {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* ---------- 🎉 Birthday Countdown ---------- */
+#birthdayContainer {
+    margin-top: 25px;
+    padding: 18px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+    animation: popIn 0.6s ease-out;
+}
+
+#birthdayContainer h2 {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: #2d1b69;
+    letter-spacing: 0.5px;
+}
+
+/* Countdown layout */
+#birthdayResult {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+}
+
+/* Individual countdown boxes */
+.bday-item {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    border-radius: 14px;
+    padding: 14px 10px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bday-item:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.bday-item h4 {
+    font-size: 13px;
+    margin-bottom: 6px;
+    opacity: 0.85;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.bday-item p {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+
+@media (max-width: 768px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .container {
+        width: 100%;
+        margin: 40px auto;
+        padding: 18px;
+        border-radius: 12px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    label {
+        font-size: 14px;
+    }
+
+    input[type="text"],
+    input[type="date"] {
+        width: 100%;
+        font-size: 15px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        font-size: 15px;
+    }
+
+    .result-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .result-item h3 {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .result-item p {
+        font-size: 15px;
+    }
+
+    /* 🎂 Birthday countdown grid → 2 columns */
+    #birthdayResult {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .bday-item {
+        padding: 12px 8px;
+    }
+
+    .bday-item p {
+        font-size: 18px;
+    }
+
+    #birthdayContainer h2 {
+        font-size: 18px;
+    }
+}
+
+/* 📱 EXTRA SMALL PHONES */
+@media (max-width: 420px) {
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .bday-item p {
+        font-size: 16px;
+    }
+
+    #birthdayResult {
+        grid-template-columns: 1fr;
+    }
+}
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Age Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Age Calculator</h1>
+        <form id="agecalculator">
+            <div class="form-group">
+                <label for="birthdate">Enter your Birthday :</label>
+                <input type="date" id="birthdate">
+                <!-- <input type="text" id="birthdate" placeholder="DD-MM-YYYY" required> -->
+            </div>
+
+            <p id="error" style="color: red;"></p>
+            <div class="form-group">
+                <button type="submit">Calculate Age</button>
+            </div>
+        </form>
+
+        <div class="result-container" id="resultcontainer">
+            <div class="result" id="result">
+                <!-- <div class="result-item">
+                    <h3>Weeks Passed:</h3>
+                    <p>ageInWeeks</p>
+                </div>
+                <div class="result-item">
+                    <h3>Weeks Passed:</h3>
+                    <p>ageInWeeks</p>
+                </div>
+                <div class="result-item">
+                    <h3>Weeks Passed:</h3>
+                    <p>ageInWeeks</p>
+                </div> -->
+            </div>
+        </div>
+        <div class="result-container" id="birthdayContainer" style="display:none;">
+            <h2>Next Birthday Countdown</h2>
+            <div id="birthdayResult"></div>
+        </div>
+
+    </div>
+ 
+    <script src="script.js"></script>
+</body>
+</html>
